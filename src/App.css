@@ -1,0 +1,18 @@
+.colorBox {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.colorBox button {
+  background-color: transparent;
+  border: none;
+}
+
+.boxHolder {
+  display: flex;
+  flex-direction: row;
+}
