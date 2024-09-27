@@ -1,14 +1,50 @@
-import React from 'react'
+import { React, useState, useEffect } from 'react'
 
-function ColorBox({ color, isLocked, lockColor, unlockColor, randomizeColor }) {
+function ColorBox({ color, setFunc, storageName, isLocked, lockColor, unlockColor, randomizeColor }) {
+    const [inputValue, setInputValue] = useState(color);
+    const [showInputFeedback, setShowInputFeedBack] = useState(false)
+
+    useEffect(() => {
+        setInputValue(color);
+    }, [color]);
+
+    const handleInputChange = (e, func) => {
+        const value = e.target.value
+        const regex = /^[#a-fA-F0-9]+$/;
+
+        if (regex.test(value) && (value.length === 7 || value.length === 4)) {
+            setShowInputFeedBack(false)
+            func(e.target.value)
+        } else {
+            setShowInputFeedBack(true)
+        }
+        setInputValue(value);
+        sessionStorage.setItem(storageName, color)
+    }
+
+    const handleInputBlur = (e, color, setFunc) => {
+        setInputValue(color)
+        setFunc(color)
+        setShowInputFeedBack(false)
+    }
+
     return (
-        <div style={{
-            backgroundColor: color,
-        }} className="colorBox">
-            {isLocked ? <button onClick={unlockColor}>unlock</button> :
-                <><button onClick={lockColor}>lock</button>
-                    <button onClick={randomizeColor}>randomize this only</button></>}
-            {color}
+        <div className="colorBoxContainer">
+            <div style={{
+                backgroundColor: color,
+            }} className="colorBoxColor">
+            </div>
+            <div className="colorBoxButtons">
+                <input
+                    type="text"
+                    value={inputValue}
+                    onBlur={(e) => handleInputBlur(e, color, setFunc)}
+                    onChange={(e) => handleInputChange(e, setFunc)}></input>
+                {showInputFeedback && <p>Invalid hex</p>}
+                <div>{isLocked ? <button onClick={unlockColor}>Unlock</button> :
+                    <><button onClick={lockColor}>Lock</button>
+                        <button onClick={randomizeColor}>| Generate</button></>}</div>
+            </div>
         </div>
     )
 }
