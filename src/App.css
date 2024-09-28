@@ -1,3 +1,26 @@
+:root {
+  --dark-color: #000000;
+  --primary-color: #a0295b;
+  --accent-color: #232323;
+  --secondary-color: #231456;
+  --light-color: #ffffff;
+}
+
+body {
+  background-color: var(--dark-color);
+  color: var(--dark-color);
+}
+
+.mainDiv {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  max-width: 80vw;
+  margin: 2rem auto;
+  background-color: var(--light-color); 
+}
+
 .colorBoxContainer {
   display: flex;
   flex-direction: column;
@@ -11,16 +34,19 @@
   height: 12rem;
 }
 
+button {
+  border: none;
+  padding: 0.5rem;
+  margin: 1rem;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
 .colorBoxButtons {
   display: flex;
   flex-direction: column;
   width: 10rem;
-}
-
-button {
-  border: none;
-  padding: 0.5rem;
-  margin: 0.5rem;
+  color: var(--dark-color);
 }
 
 .colorBoxButtons button {
@@ -40,13 +66,4 @@ button {
 .boxHolder {
   display: flex;
   flex-direction: row;
-}
-
-.mainDiv {
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  align-items: center;
-  max-width: 80vw;
-  margin: auto; 
 }
