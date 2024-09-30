@@ -1,4 +1,4 @@
-[COLORBRO]:https://santten.github.io/color-bro/ is a color generator web app that is sure to give you an awesome 5-color palette for your next project...!!
+[COLORBRO](https://santten.github.io/color-bro/) is a color generator web app that is sure to give you an awesome 5-color palette for your next project...!!
 
 ![alt text](image.png)
 
