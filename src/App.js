@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import './App.css';
 
 import ColorGenerator from './components/ColorGenerator';
@@ -10,14 +10,13 @@ function App() {
     return urlParams.get(param) || defaultValue;
   };
 
-  const defaulttheme = {
-    dark: "#000000",
-    primary: "#a0295b",
-    accent: "#232323",
-    secondary: "#231456",
-    light: "#ffffff",
-  }
-
+  const defaulttheme = useMemo(() => ({
+    dark: "#3a1329",
+    primary: "#752e67",
+    accent: "#b8c192",
+    secondary: "#6a9072",
+    light: "#fdefce",
+  }), []);
 
   const [yourDark, setYourDark] = useState(getQueryParam("yourDark", defaulttheme.dark))
   const [yourPrimary, setYourPrimary] = useState(getQueryParam("yourPrimary", defaulttheme.primary))
@@ -39,26 +38,31 @@ function App() {
 
   useEffect(() => {
     document.documentElement.style.setProperty('--background-color', previewColors ? yourLight : defaulttheme.light);
-    document.documentElement.style.setProperty('--text-color', previewColors ? yourDark : defaulttheme.dark);
+    document.documentElement.style.setProperty('--dark-color', previewColors ? yourDark : defaulttheme.dark);
     document.documentElement.style.setProperty('--primary-color', previewColors ? yourPrimary : defaulttheme.primary);
     document.documentElement.style.setProperty('--accent-color', previewColors ? yourAccent : defaulttheme.accent);
-    document.documentElement.style.setProperty('--secondary-color', yourSecondary ? yourSecondary : defaulttheme.secondary);
-  }, [yourDark, yourPrimary, yourAccent, yourSecondary, yourLight, previewColors]);
+    document.documentElement.style.setProperty('--secondary-color', previewColors ? yourSecondary : defaulttheme.secondary);
+    document.documentElement.style.setProperty('--light-color', previewColors ? yourLight : defaulttheme.light);
+  }, [yourDark, yourPrimary, yourAccent, yourSecondary, yourLight, previewColors, defaulttheme]);
 
   const togglePreviewColors = (e) => {
     setPreviewColors(!previewColors)
   }
 
-  useEffect(() => {
-    document.body.style.backgroundColor = previewColors ? yourDark : defaulttheme.dark
-  }, [yourDark]);
-
   return (
     <div>
-      <div className="mainDiv" style={{ backgroundColor: previewColors ? yourLight : defaulttheme.light }}>
-        <h3 style={{ color: previewColors ? yourPrimary : defaulttheme.primary }}>
-          ColorBro
-        </h3>
+      <div className="mainDiv">
+        <header>
+          <h2>
+            #ColorBro
+          </h2>
+          <div className="buttonHolder">
+          <button onClick={togglePreviewColors}>
+            {previewColors ? "Use Default Colors in UI" : "Use Palette Colors in UI"}
+          </button>
+          {/* new buttons here?  */}
+          </div>
+        </header>
 
         <ColorGenerator
           yourDark={yourDark} setYourDark={setYourDark}
@@ -67,9 +71,6 @@ function App() {
           yourSecondary={yourSecondary} setYourSecondary={setYourSecondary}
           yourLight={yourLight} setYourLight={setYourLight}
         />
-        <button onClick={togglePreviewColors}>
-          {previewColors ? "Use Neutral Colors in UI" : "Use Palette Colors in UI"}
-        </button>
       </div>
 
     </div>

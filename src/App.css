@@ -1,9 +1,11 @@
 :root {
-  --dark-color: #000000;
-  --primary-color: #a0295b;
-  --accent-color: #232323;
-  --secondary-color: #231456;
-  --light-color: #ffffff;
+  --dark-color: #3a1329;
+  --primary-color: #752e67;
+  --accent-color: #b8c192;
+  --secondary-color: #6a9072;
+  --light-color: #fdefce;
+
+  --basic-shadow: 0 2px 4px -1px var(--dark-color);
 }
 
 body {
@@ -16,9 +18,12 @@ body {
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  max-width: 80vw;
+  max-width: min-content;
   margin: 2rem auto;
   background-color: var(--light-color); 
+  border-radius: 1rem;
+  box-shadow: var(--basic-shadow);
+  padding: 0 2rem;
 }
 
 .colorBoxContainer {
@@ -26,20 +31,24 @@ body {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  width: 12rem;
+  max-width: 12vw;
 }
 
 .colorBoxColor {
-  width: 12rem;
-  height: 12rem;
+  width: 12vw;
+  height: 12vw; 
 }
 
 button {
   border: none;
-  padding: 0.5rem;
-  margin: 1rem;
+  padding: 0.5rem 1rem;
   background-color: var(--primary-color);
   color: var(--light-color);
+  border-radius: 0.5rem;
+  box-shadow: var(--basic-shadow);
+  font-family: 'Nunito', 'Roboto', 'Oxygen', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: medium;
 }
 
 .colorBoxButtons {
@@ -51,19 +60,48 @@ button {
 
 .colorBoxButtons button {
   background-color: transparent;
+  color: var(--dark-color);
   padding: 0;
   margin: 0;
   text-align: center;
+  box-shadow: none;
 }
 
-.colorBoxButtons input {
+input[type=text] {
   margin: 0.5rem;
   padding: 0.25rem 0.5rem;
-  border-radius: 12px;
-  border: solid 2px;
+  border-radius: 0.5rem;
+  border: solid 2px var(--secondary-color);
+  background-color: var(--light-color);
+  color: var(--dark-color);
 }
 
 .boxHolder {
   display: flex;
   flex-direction: row;
+  padding-bottom: 0.5rem;
+  box-shadow: var(--basic-shadow);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: var(--accent-color);
+}
+
+.randomizeall {
+  margin: 1rem 0 2rem 0;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  align-items: center;
+  width: 100%;
+}
+
+h2 {
+  margin: 0;
+  margin-right: auto;
+  color: var(--dark-color);
 }
