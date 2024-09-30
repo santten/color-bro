@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/color-bro/static/css/main.10787445.css",
+    "main.js": "/color-bro/static/js/main.2af4526b.js",
+    "static/js/453.47f7e9e7.chunk.js": "/color-bro/static/js/453.47f7e9e7.chunk.js",
+    "index.html": "/color-bro/index.html",
+    "main.10787445.css.map": "/color-bro/static/css/main.10787445.css.map",
+    "main.2af4526b.js.map": "/color-bro/static/js/main.2af4526b.js.map",
+    "453.47f7e9e7.chunk.js.map": "/color-bro/static/js/453.47f7e9e7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.10787445.css",
+    "static/js/main.2af4526b.js"
+  ]
+}
