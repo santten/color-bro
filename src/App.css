@@ -20,7 +20,7 @@ body {
   align-items: center;
   max-width: min-content;
   margin: 2rem auto;
-  background-color: var(--light-color); 
+  background-color: var(--light-color);
   border-radius: 1rem;
   box-shadow: var(--basic-shadow);
   padding: 0 2rem;
@@ -36,7 +36,7 @@ body {
 
 .colorBoxColor {
   width: 12vw;
-  height: 12vw; 
+  height: 12vw;
 }
 
 button {
@@ -49,16 +49,23 @@ button {
   font-family: 'Nunito', 'Roboto', 'Oxygen', 'Helvetica Neue', sans-serif;
   font-weight: 600;
   font-size: medium;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
 }
 
 .colorBoxButtons {
   display: flex;
   flex-direction: column;
-  width: 10rem;
+  max-width: 10rem;
+  justify-content: center;
   color: var(--dark-color);
 }
 
-.colorBoxButtons button {
+.colorBoxButtons button,
+.colorBoxButtons button:hover {
   background-color: transparent;
   color: var(--dark-color);
   padding: 0;
@@ -104,4 +111,80 @@ h2 {
   margin: 0;
   margin-right: auto;
   color: var(--dark-color);
+}
+
+h2:hover {
+  color: var(--accent-color);
+}
+
+.invalidHex {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 1178px) {
+  body {
+    font-size: small;
+  }
+
+  button {
+    font-size: small;
+  }
+
+  input[type=text] {
+    margin: 2px;
+    padding: 2px;
+    width: 8vw;
+    font-size: smaller;
+  }
+}
+
+@media (max-width: 790px) {
+
+  input[type=text] {
+    margin: auto;
+    padding: 2px;
+    width: 4rem;
+    font-size: small;
+  }
+
+  .boxHolder {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mainDiv {
+    max-width: min-content;
+    margin: 1rem auto;
+    padding: 0 1rem;
+  }
+
+  .colorBoxContainer {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .colorBoxColor {
+    width: 40vw;
+    height: 20vw;
+  }
+
+  .colorBoxButtons {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+  }
+
+  h2 {
+    margin: auto;
+  }
 }

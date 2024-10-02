@@ -40,10 +40,11 @@ function ColorBox({ color, setFunc, storageName, isLocked, lockColor, unlockColo
                     value={inputValue}
                     onBlur={(e) => handleInputBlur(e, color, setFunc)}
                     onChange={(e) => handleInputChange(e, setFunc)}></input>
-                {showInputFeedback && <p>Invalid hex</p>}
-                <div>{isLocked ? <button onClick={unlockColor}>Unlock</button> :
-                    <><button onClick={lockColor}>Lock&nbsp;</button>|
-                        <button onClick={randomizeColor}>&nbsp;Generate</button></>}</div>
+
+                    {showInputFeedback && <p className="invalidHex">Invalid hex</p>}
+                    {!showInputFeedback && isLocked && <button onClick={unlockColor}>Unlock</button>}
+                    {!showInputFeedback && !isLocked && <div><button onClick={lockColor}>Lock&nbsp;</button>|
+                        <button onClick={randomizeColor}>&nbsp;Generate</button></div>}
             </div>
         </div>
     )
