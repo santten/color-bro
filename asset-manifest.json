@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/color-bro/static/css/main.10787445.css",
-    "main.js": "/color-bro/static/js/main.2af4526b.js",
+    "main.css": "/color-bro/static/css/main.31672562.css",
+    "main.js": "/color-bro/static/js/main.b70f43a8.js",
     "static/js/453.47f7e9e7.chunk.js": "/color-bro/static/js/453.47f7e9e7.chunk.js",
     "index.html": "/color-bro/index.html",
-    "main.10787445.css.map": "/color-bro/static/css/main.10787445.css.map",
-    "main.2af4526b.js.map": "/color-bro/static/js/main.2af4526b.js.map",
+    "main.31672562.css.map": "/color-bro/static/css/main.31672562.css.map",
+    "main.b70f43a8.js.map": "/color-bro/static/js/main.b70f43a8.js.map",
     "453.47f7e9e7.chunk.js.map": "/color-bro/static/js/453.47f7e9e7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.10787445.css",
-    "static/js/main.2af4526b.js"
+    "static/css/main.31672562.css",
+    "static/js/main.b70f43a8.js"
   ]
 }
